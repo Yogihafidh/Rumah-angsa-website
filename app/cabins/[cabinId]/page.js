@@ -1,17 +1,26 @@
-import { getCabin } from "@/app/_lib/data-service";
+import { getCabin, getCabins } from "@/app/_lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 // Generating dynamic metadata
 export async function generateMetadata({ params }) {
-  const cabin = await getCabin(params?.cabinId);
-  return { title: `Cabin ${cabin.name}` };
+  const { cabinId } = await params;
+  const { name } = await getCabin(cabinId);
+  return { title: `Cabin ${name}` };
+}
+
+// Convert dynamic route segments to static params. This is for static page generation. if you have finite small amout of pages, then you can pre generate the pages so that it's not dynamic and it is fast.
+export async function generateStaticParams() {
+  const cabins = await getCabins();
+  const ids = cabins?.map((cabin) => ({ cabinId: String(cabin.id) }));
+  return ids;
 }
 
 // Dynamic route segments
 export default async function Page({ params }) {
   // Get id in url
-  const cabin = await getCabin(params.cabinId);
+  const { cabinId } = await params;
+  const cabin = await getCabin(cabinId);
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
 
