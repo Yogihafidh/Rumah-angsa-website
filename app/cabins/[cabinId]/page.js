@@ -12,8 +12,7 @@ export async function generateMetadata({ params }) {
 // Convert dynamic route segments to static params. This is for static page generation. if you have finite small amout of pages, then you can pre generate the pages so that it's not dynamic and it is fast.
 export async function generateStaticParams() {
   const cabins = await getCabins();
-  const ids = cabins?.map((cabin) => ({ cabinId: String(cabin.id) }));
-  return ids;
+  return cabins?.map((cabin) => ({ cabinId: String(cabin.id) }));
 }
 
 // Dynamic route segments
