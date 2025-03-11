@@ -1,14 +1,19 @@
 import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
+import Filter from "../_components/Filter";
 
-// No caching in route level
+// Caching in route level
 // export const revalidate = 3600; // 1 hour
 export const metadata = {
   title: "Cabins",
 };
 
-export default async function Page() {
+export default async function Page({ searchParams }) {
+  // Await searchParams sebelum mengakses propertinya
+  const params = await searchParams;
+  const filter = params?.capacity ?? "all";
+
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -23,8 +28,12 @@ export default async function Page() {
         Welcome to paradise.
       </p>
 
-      <Suspense fallback={<Spinner />}>
-        <CabinList />
+      <div className="flex justify-end mb-8">
+        <Filter />
+      </div>
+
+      <Suspense fallback={<Spinner />} key={filter}>
+        <CabinList filter={filter} />
       </Suspense>
     </div>
   );
