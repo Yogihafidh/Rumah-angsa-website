@@ -3,10 +3,10 @@ import { getCabins } from "../_lib/data-service";
 import { unstable_noStore as noStore } from "next/cache";
 
 async function CabinList({ filter }) {
-  // No caching in component level
+  // Non activate caching in component level to revalidate data
   noStore();
-  
-  // Fatching data
+
+  // Fatching data in close component 
   const cabins = await getCabins();
   if (!cabins.length) return null;
 

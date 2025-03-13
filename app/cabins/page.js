@@ -32,6 +32,7 @@ export default async function Page({ searchParams }) {
         <Filter />
       </div>
 
+      {/* Incremental Static Regeneration (Partial rendering implementation) */}
       <Suspense fallback={<Spinner />} key={filter}>
         <CabinList filter={filter} />
       </Suspense>
