@@ -5,6 +5,7 @@ export const metadata = {
 };
 
 export default async function page() {
+  // Get session user information
   const session = await auth();
   return (
     <div className="font-semibold text-2xl text-accent-400 mb-7">
