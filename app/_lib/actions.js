@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
+import { getBookings } from "./data-service";
 
 export async function updateGuest(formData) {
   // Check user authentication. User in invoking server action must be authorization
@@ -24,6 +25,32 @@ export async function updateGuest(formData) {
 
   // Manually cache revalidation
   revalidatePath("/account/profile");
+}
+
+export async function deleteReservation(bookingId) {
+  // Check user authentication. User in invoking server action must be authorization
+  const session = await auth();
+  if (!session) throw new Error("You must be logged in");
+
+  // Verification guest Steps. Get all bookings for the current user, then get id for each booking data
+  const guestBookings = await getBookings(session.user.guestId);
+  const guestBookingsIds = guestBookings.map((booking) => booking.id);
+
+  // Check if the user is allowed to delete the booking.
+  if (!guestBookingsIds.includes(bookingId))
+    throw new Error("Youb are not allowed to delete this booking");
+
+  const { error } = await supabase
+    .from("bookings")
+    .delete()
+    .eq("id", bookingId);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Booking could not be deleted");
+  }
+
+  revalidatePath("/account/reservation");
 }
 
 export async function signInAction() {

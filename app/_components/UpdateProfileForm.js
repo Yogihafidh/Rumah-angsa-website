@@ -68,7 +68,7 @@ function UpdateProfileForm({ guest, children }) {
 
 function Button() {
   // Loading implemented
-  const { pending } = useFormStatus();
+  const { pending } = useFormStatus(); // must be called in form element, when otherwise not in form use useTransition
 
   return (
     <button
