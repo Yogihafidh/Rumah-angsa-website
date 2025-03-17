@@ -33,7 +33,7 @@ export const {
       // get guest base on new session
       const guest = await getGuest(session.user.email);
 
-      // Set session id with new data
+      // set guestId in session
       session.user.guestId = guest.id;
       return session;
     },
