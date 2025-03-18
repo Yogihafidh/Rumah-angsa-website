@@ -29,6 +29,10 @@ export async function updateGuest(formData) {
 }
 
 export async function deleteReservation(bookingId) {
+  // Test Action Performance
+  // await new Promise((res) => setTimeout(res, 2000)); // speed test
+  // throw new Error(); // error test
+
   // Check user authentication. User in invoking server action must be authorization
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
