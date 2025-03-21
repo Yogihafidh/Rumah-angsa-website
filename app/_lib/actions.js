@@ -4,6 +4,7 @@ import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
 import { getBookings } from "./data-service";
 import { redirect } from "next/navigation";
+import { bookingSchema } from "./schemas";
 
 export async function updateGuest(formData) {
   // Check user authentication. User in invoking server action must be authorization
@@ -28,7 +29,44 @@ export async function updateGuest(formData) {
   revalidatePath("/account/profile");
 }
 
-export async function deleteReservation(bookingId) {
+// With bind function, form data will send as a second argument because the first argument is already binded, which is bookingData
+export async function createBooking(bookingData, formData) {
+  const session = await auth();
+  if (!session) throw new Error("You must be logged in");
+
+  const newBookingData = {
+    guestId: session.user.guestId,
+    ...bookingData,
+    numGuests: Number(formData.get("numGuests")),
+    observations: formData.get("observations").slice(0, 1000),
+    extrasPrice: 0,
+    totalPrice: bookingData.cabinPrice,
+    isPaid: false,
+    hasBreakfast: false,
+    status: "unconfirmed",
+  };
+
+  // Validasi dengan zod
+  const data = bookingSchema.safeParse(newBookingData);
+  if (!data.success) {
+    throw new Error("Booking data is invalid", data.error.format());
+  } else {
+    console.log("Validated booking:", data.data);
+  }
+
+  const { error: createError } = await supabase
+    .from("bookings")
+    .insert([data.data]);
+
+  if (createError) {
+    throw new Error("Booking could not be created");
+  }
+
+  revalidatePath(`/cabins/${bookingData.cabinId}`);
+  redirect("/cabins/thankyou");
+}
+
+export async function deleteBooking(bookingId) {
   // Test Action Performance
   // await new Promise((res) => setTimeout(res, 2000)); // speed test
   // throw new Error(); // error test

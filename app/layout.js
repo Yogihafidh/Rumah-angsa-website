@@ -1,13 +1,13 @@
-import { Josefin_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "@/app/_styles/globals.css";
 
-import Header from "./_components/Header";
-import Logo from "./_components/Logo";
 import { ReservationProvider } from "./_components/ReservationContext";
+import Header from "./_components/Header";
 
-const josefin = Josefin_Sans({
+const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -23,13 +23,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
+        className={`${poppins.className} antialiased bg-white text-lime-950 min-h-screen flex flex-col relative`}
       >
         <Header />
-
-        <div className="flex-1 px-8 py-12 grid">
+        <div className="flex-1 grid">
           <ReservationProvider>
-            <main className="max-w-7xl mx-auto w-full">{children}</main>
+            <main className="mx-auto w-full">{children}</main>
           </ReservationProvider>
         </div>
       </body>

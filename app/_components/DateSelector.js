@@ -1,44 +1,57 @@
 "use client";
-import { isWithinInterval } from "date-fns";
+
+import {
+  differenceInDays,
+  isPast,
+  isSameDay,
+  isWithinInterval,
+} from "date-fns";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { useReservation } from "./ReservationContext";
 
 function isAlreadyBooked(range, datesArr) {
   return (
-    range.from &&
-    range.to &&
-    datesArr.some((date) =>
-      isWithinInterval(date, { start: range.from, end: range.to })
+    range?.from &&
+    range?.to &&
+    datesArr?.some((date) =>
+      isWithinInterval(date, { start: range?.from, end: range?.to })
     )
   );
 }
 
 function DateSelector({ settings, cabin, bookedDates }) {
+  // Setup display range
   const { range, setRange, resetRange } = useReservation();
-  // CHANGE
-  const regularPrice = 23;
-  const discount = 23;
-  const numNights = 23;
-  const cabinPrice = 23;
+  const displayRange = isAlreadyBooked(range, bookedDates) ? {} : range;
 
-  // Settings data
+  // Get the number of full day periods between two dates
+  const numNights = differenceInDays(displayRange?.to, displayRange?.from);
+
+  // Calculate the total price
+  const { regularPrice, discount } = cabin;
+  const cabinPrice = numNights * (regularPrice - discount);
+
+  // Get settings data
   const { minBookingLength, maxBookingLength } = settings;
 
   return (
     <div className="flex flex-col justify-between">
       <DayPicker
         onSelect={setRange}
-        selected={range}
+        selected={displayRange}
         className="pt-12 place-self-center"
         mode="range"
         min={minBookingLength + 1}
         max={maxBookingLength}
         startMonth={new Date()}
-        fromDate={new Date()}
-        toYear={new Date().getFullYear() + 5}
+        endMonth={new Date(new Date().getFullYear() + 5, 11)}
         captionLayout="dropdown"
         numberOfMonths={1}
+        disabled={(curDate) =>
+          isPast(curDate) ||
+          bookedDates.some((date) => isSameDay(date, curDate))
+        }
       />
 
       <div className="flex items-center justify-between px-8 bg-accent-500 text-primary-800 h-[72px]">

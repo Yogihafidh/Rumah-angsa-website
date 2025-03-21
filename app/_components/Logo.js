@@ -3,11 +3,14 @@ import Link from "next/link";
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-4 z-10">
-      <Image src="/logo.png" quality={100} height="60" width="60" alt="The Wild Oasis logo" />
-      <span className="text-xl font-semibold text-primary-100">
-        The Wild Oasis
-      </span>
+    <Link href="/">
+      <Image
+        src="/logo.png"
+        quality={100}
+        height="80"
+        width="80"
+        alt="Bobobox logo"
+      />
     </Link>
   );
 }

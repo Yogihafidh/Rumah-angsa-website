@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import { createGuest, getGuest } from "./data-service";
-import { tr } from "date-fns/locale";
 
 export const {
   handlers: { GET, POST },
