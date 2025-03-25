@@ -8,7 +8,7 @@ export default function SubmitButton({ pendingLabel, children }) {
 
   return (
     <button
-      className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
+      className="cursor-pointer bg-primary-500 text-white rounded-xl px-8 py-4  font-semibold hover:bg-primary-400 transition-all disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500 disabled:border disabled:border-gray-300"
       disabled={pending}
     >
       {pending ? pendingLabel : children}

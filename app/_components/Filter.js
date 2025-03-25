@@ -1,5 +1,4 @@
 "use client";
-
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 function Filter() {
@@ -17,13 +16,13 @@ function Filter() {
   }
 
   return (
-    <div className="border border-primary-800 flex">
+    <div className="border border-gray-600 flex overflow-hidden rounded-2xl">
       <Button
         filter="all"
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
-        All cabins
+        Semua Kabin
       </Button>
 
       <Button
@@ -31,7 +30,7 @@ function Filter() {
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
-        3 guests
+        3 Tamu
       </Button>
 
       <Button
@@ -39,7 +38,7 @@ function Filter() {
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
-        4&mdash;7 guests
+        4&mdash;7 Tamu
       </Button>
 
       <Button
@@ -47,7 +46,7 @@ function Filter() {
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
-        8&mdash;12 guests
+        8&mdash;12 Tamu
       </Button>
     </div>
   );
@@ -56,8 +55,8 @@ function Filter() {
 function Button({ filter, handleFilter, activeFilter, children }) {
   return (
     <button
-      className={`px-5 py-2 hover:bg-primary-700 ${
-        filter === activeFilter ? "bg-primary-700 text-primary-50" : ""
+      className={`cursor-pointer px-5 py-2 hover:bg-primary-300 ${
+        filter === activeFilter ? "bg-primary-500 text-white" : ""
       }`}
       onClick={() => handleFilter(filter)}
     >

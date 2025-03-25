@@ -7,8 +7,8 @@ function Logo() {
       <Image
         src="/logo.png"
         quality={100}
-        height="80"
-        width="80"
+        height={80}
+        width={150}
         alt="Bobobox logo"
       />
     </Link>

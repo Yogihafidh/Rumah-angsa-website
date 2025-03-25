@@ -9,31 +9,31 @@ export default async function Page({ params }) {
 
   return (
     <div>
-      <h2 className="font-semibold text-2xl text-accent-400 mb-7">
+      <h2 className="font-semibold text-2xl mb-7">
         Edit Reservation #{bookingId}
       </h2>
 
       <form
         action={updateBooking}
-        className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+        className="border border-gray-300 rounded-2xl py-8 px-12 text-lg flex gap-6 flex-col"
       >
         <input type="hidden" name="bookingId" value={bookingId} />
 
         <div className="space-y-2">
-          <label htmlFor="numGuests">How many guests?</label>
+          <label htmlFor="numGuests">Berapa banyak tamu?</label>
           <select
             name="numGuests"
             id="numGuests"
             defaultValue={numGuests}
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-5 py-3 w-full shadow-sm rounded-lg border border-gray-200"
             required
           >
             <option value="" key="">
-              Select number of guests...
+              Pilih berapa banyak tamu
             </option>
             {Array.from({ length: maxCapacity }, (_, i) => i + 1).map((x) => (
               <option value={x} key={x}>
-                {x} {x === 1 ? "guest" : "guests"}
+                {x} tamu
               </option>
             ))}
           </select>
@@ -41,12 +41,12 @@ export default async function Page({ params }) {
 
         <div className="space-y-2">
           <label htmlFor="observations">
-            Anything we should know about your stay?
+            Ada hal lain yang perlu kami ketahui tentang reservasi Anda?
           </label>
           <textarea
             defaultValue={observations}
             name="observations"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-5 py-3 border h-full border-gray-200  w-full shadow-sm rounded-lg"
           />
         </div>
 

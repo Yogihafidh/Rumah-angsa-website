@@ -9,18 +9,18 @@ function DeleteReservation({ bookingId, onDelete }) {
 
   function handleDelete() {
     // Loading indicator if you call server action on the button
-    if (confirm("Are you sure you want to delete this reservation"))
+    if (confirm("Apakah anda ingin menghapus reservasi ini?"))
       startTransition(() => onDelete(bookingId));
   }
 
   return (
     <button
       onClick={handleDelete}
-      className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900 cursor-pointer"
+      className="group flex items-center gap-2 uppercase text-gray-500 text-xs font-bold flex-grow px-3 hover:bg-red-600 transition-colors hover:text-white cursor-pointer"
     >
       {!isPending ? (
         <>
-          <TrashIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" />
+          <TrashIcon className="h-5 w-5  group-hover:text-white transition-colors" />
           <span className="mt-1">Delete</span>
         </>
       ) : (

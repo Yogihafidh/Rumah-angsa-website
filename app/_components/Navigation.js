@@ -11,19 +11,11 @@ export default async function Navigation() {
     <nav className="z-10 text-xl text-black">
       <ul className="flex gap-16 items-center">
         <li>
-          <Link
-            href="/cabins"
-            className="hover:text-gray-500 transition-colors"
-          >
-            Cabins
-          </Link>
+          <LinkNavigation path="/cabins">Semua Kabin</LinkNavigation>
         </li>
         <li>
           {session?.user?.image ? (
-            <Link
-              href="/account"
-              className="hover:text-gray-500 transition-colors flex items-center gap-4"
-            >
+            <LinkNavigation path="/account" style="flex items-center gap-4">
               <Image
                 className="h-8 rounded-full"
                 width={32}
@@ -33,17 +25,23 @@ export default async function Navigation() {
                 unoptimized
               />
               <span>{session.user.name.split(" ").at(0)}</span>
-            </Link>
+            </LinkNavigation>
           ) : (
-            <Link
-              href="/account"
-              className="hover:text-gray-500 transition-colors"
-            >
-              Login
-            </Link>
+            <LinkNavigation path="/account">Login</LinkNavigation>
           )}
         </li>
       </ul>
     </nav>
+  );
+}
+
+function LinkNavigation({ path, style = "", children }) {
+  return (
+    <Link
+      href={path}
+      className={`hover:text-primary-500 transition-colors ${style}`}
+    >
+      {children}
+    </Link>
   );
 }

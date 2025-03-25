@@ -12,7 +12,7 @@ export default function Page() {
           src={bg}
           placeholder="blur"
           quality={100}
-          className="object-cover object-top"
+          className="object-cover object-top border-b-3 border-t-3 border-black"
           fill
           alt="Mountains and forests with two cabins"
         />
@@ -20,47 +20,46 @@ export default function Page() {
         <div className="flex items-center justify-center h-screen w-screen">
           <div className="relative z-10 text-center">
             <h1 className="text-8xl text-white mb-1 tracking-tight font-normal">
-              Welcome to Bobobox.
+              Welcome to Rumah Angsa.
             </h1>
-            <p className="mb-10 text-white">
+            <p className="mb-20 text-white">
               Witness the breathtaking views and #BeOneWithNature in the warmth
               of your cabin.
             </p>
             <Link
               href="/cabins"
-              className="bg-lime-950 px-8 py-6 text-white text-lg font-semibold hover:bg-lime-900 transition-all"
+              className="bg-primary-900 rounded-2xl  px-8 py-6 text-white text-lg font-semibold hover:bg-primary-700 transition-all"
             >
-              Explore all cabins
+              Jelajahi semua kabin kita
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center max-w-7xl mx-auto w-full mb-20 text-black  px-4 sm:px-6 md:px-8 lg:px-10">
+      <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center  mx-auto w-full mb-20 text-black  px-4 sm:px-8 md:px-10 lg:px-20">
         <div className="col-span-3">
           <h1 className="text-4xl mb-10  font-medium">
-            Selamat datang di Bobocabin
+            Selamat datang di Rumah Angsa
           </h1>
 
           <div className="space-y-8">
             <p>
               Tempat di mana keindahan alam Indonesia berpadu harmonis dengan
-              kenyamanan modern. Tersebar di berbagai destinasi menawan,
-              Bobocabin menawarkan pengalaman unik untuk kembali menyatu dengan
-              alam dan menikmati kebersamaan dengan orang-orang tercinta.
+              kenyamanan modern. Terletak di Ladang Hutan, Guci, Kecamatan
+              Bumijawa, Kabupaten Tegal, Rumah Angsa menawarkan pengalaman unik
+              untuk kembali menyatu dengan alam dan menikmati kebersamaan dengan
+              orang-orang tercinta.
             </p>
             <p>
-              Setiap Bobocabin dirancang sebagai basis yang nyaman, namun
-              kebebasan dan kedamaian sejati dapat Anda temukan di alam
-              sekitarnya. Nikmati suasana hutan pinus yang menenangkan di
-              Bobocabin Cikole, Bandung , atau rasakan kesejukan pegunungan di
-              Bobocabin Gunung Mas, Puncak . Bagi Anda yang mencari ketenangan
-              di Bali, Bobocabin Ubud menawarkan pemandangan alam yang memukau.
+              Setiap tenda glamping di Rumah Angsa dirancang sebagai tempat yang
+              nyaman, namun kebebasan dan kedamaian sejati dapat Anda temukan di
+              alam sekitarnya. Nikmati suasana hutan pinus yang menenangkan dan
+              pemandangan Gunung Slamet yang memukau.
             </p>
           </div>
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-2 rounded-2xl overflow-hidden">
           <Image
             src={image1}
             placeholder="blur"
@@ -69,7 +68,7 @@ export default function Page() {
           />
         </div>
 
-        <div className="relative aspect-square col-span-2">
+        <div className="relative aspect-square col-span-2 rounded-2xl overflow-hidden">
           <Image
             src="/about-2.jpg"
             fill
@@ -80,21 +79,31 @@ export default function Page() {
 
         <div className="col-span-3">
           <h1 className="text-4xl mb-10 font-medium">
-            Di Bobocabin, momen berharga tercipta di tengah kemegahan alam.
+            Di Rumah Angsa, momen berharga tercipta di tengah kemegahan alam.
           </h1>
 
           <div className="space-y-8">
             <p>
-              Ini adalah tempat untuk melambat, bersantai, dan merasakan
-              kebahagiaan bersama dalam suasana yang indah
+              ​Di Rumah Angsa, kami memahami pentingnya meluangkan waktu untuk
+              melambat dan menikmati momen berharga bersama orang-orang
+              tercinta. Dikelilingi oleh rimbunnya hutan pinus dan panorama
+              megah Gunung Slamet, tempat ini menawarkan suasana yang sempurna
+              untuk bersantai dan melepaskan diri dari rutinitas sehari-hari.
+              Baik Anda memilih untuk berkemah di area camping yang luas,
+              menginap di tenda glamping yang nyaman, atau sekadar menikmati
+              suasana di kafe kami, setiap pengalaman dirancang untuk memberikan
+              ketenangan dan kebahagiaan.
             </p>
             <p>
-              Sejak didirikan, Bobocabin telah menjadi retret yang dikelola
-              dengan penuh cinta dan perhatian. Kami berkomitmen untuk
-              menciptakan lingkungan yang hangat dan ramah, di mana Anda bukan
-              hanya tamu, tetapi bagian dari keluarga besar kami. Bergabunglah
-              bersama kami di Bobocabin, di mana tradisi bertemu dengan
-              ketenangan, dan setiap kunjungan terasa seperti pulang ke rumah.
+              Sejak awal berdirinya, Rumah Angsa telah menjadi tempat
+              peristirahatan yang dikelola dengan penuh cinta dan perhatian.
+              Kami berkomitmen untuk menciptakan lingkungan yang hangat dan
+              ramah, di mana setiap tamu diperlakukan seperti bagian dari
+              keluarga besar kami. Dengan fasilitas lengkap seperti musala,
+              aula, dan area api unggun, kami berusaha memenuhi kebutuhan Anda
+              selama menginap. Bergabunglah bersama kami di Rumah Angsa, tempat
+              di mana tradisi bertemu dengan ketenangan, dan setiap kunjungan
+              memberikan perasaan seperti pulang ke rumah.
             </p>
           </div>
         </div>

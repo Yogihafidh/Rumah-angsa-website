@@ -26,9 +26,9 @@ function ReservationForm({ cabin, user }) {
   const createBookingWithData = createBooking.bind(null, bookingData);
 
   return (
-    <div>
-      <div className="bg-primary-800 text-primary-300 px-16 py-2 flex justify-between items-center">
-        <p>Logged in as</p>
+    <div className="border border-gray-100 shadow-md  rounded-2xl mx-3 my-3">
+      <div className="bg-gray-100 rounded-xl mx-3 my-3 px-16 py-2 flex justify-between items-center">
+        <p>Login sebagai</p>
 
         <div className="flex gap-4 items-center">
           <Image
@@ -49,22 +49,22 @@ function ReservationForm({ cabin, user }) {
           await createBookingWithData(formData);
           resetRange();
         }}
-        className="bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col"
+        className="py-10 px-10 text-lg flex gap-5 flex-col"
       >
         <div className="space-y-2">
-          <label htmlFor="numGuests">How many guests?</label>
+          <label htmlFor="numGuests">Berapa banyak tamu?</label>
           <select
             name="numGuests"
             id="numGuests"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-5 py-3 text-gray-500 w-full border border-gray-200 shadow-sm rounded-md"
             required
           >
             <option value="" key="">
-              Select number of guests...
+              Pilih berapa banyak tamu...
             </option>
             {Array.from({ length: maxCapacity }, (_, i) => i + 1).map((x) => (
               <option value={x} key={x}>
-                {x} {x === 1 ? "guest" : "guests"}
+                {x} tamu
               </option>
             ))}
           </select>
@@ -72,23 +72,23 @@ function ReservationForm({ cabin, user }) {
 
         <div className="space-y-2">
           <label htmlFor="observations">
-            Anything we should know about your stay?
+            Apa yang perlu kami ketahui tentang reservasi anda?
           </label>
           <textarea
             name="observations"
             id="observations"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
-            placeholder="Any pets, allergies, special requirements, etc.?"
+            className="px-5 py-3  text-gray-500 w-full shadow-sm border border-gray-200 rounded-md"
+            placeholder="Ada hewan peliharaan, alergi, atau persyaratan khusus lainnya?"
           />
         </div>
 
         <div className="flex justify-end items-center gap-6">
           {!(startDate && endDate) ? (
-            <p className="text-primary-300 text-base">
-              Start by selecting dates
-            </p>
+            <p className=" text-base">Mulailah dengan memilih tanggal</p>
           ) : (
-            <SubmitButton pendingLabel="Reserving...">Reserve now</SubmitButton>
+            <SubmitButton pendingLabel="Reserving...">
+              Booking sekarang
+            </SubmitButton>
           )}
         </div>
       </form>

@@ -54,29 +54,29 @@ function DateSelector({ settings, cabin, bookedDates }) {
         }
       />
 
-      <div className="flex items-center justify-between px-8 bg-accent-500 text-primary-800 h-[72px]">
+      <div className="flex items-center justify-between px-8 text-white bg-primary-500 h-[72px] mx-2 my-2 rounded-xl">
         <div className="flex items-baseline gap-6">
           <p className="flex gap-2 items-baseline">
             {discount > 0 ? (
               <>
                 <span className="text-2xl">${regularPrice - discount}</span>
-                <span className="line-through font-semibold text-primary-700">
+                <span className="line-through font-semibold ">
                   ${regularPrice}
                 </span>
               </>
             ) : (
               <span className="text-2xl">${regularPrice}</span>
             )}
-            <span className="">/night</span>
+            <span className="">/malam</span>
           </p>
           {numNights ? (
             <>
-              <p className="bg-accent-600 px-3 py-2 text-2xl">
+              <p className="bg-primary-400 rounded-2xl px-3 py-2 text-2xl">
                 <span>&times;</span> <span>{numNights}</span>
               </p>
               <p>
                 <span className="text-lg font-bold uppercase">Total</span>{" "}
-                <span className="text-2xl font-semibold">${cabinPrice}</span>
+                <span className="text-2xl font-semibold">Rp{cabinPrice} K</span>
               </p>
             </>
           ) : null}
@@ -84,7 +84,7 @@ function DateSelector({ settings, cabin, bookedDates }) {
 
         {range?.from || range?.to ? (
           <button
-            className="border border-primary-800 py-2 px-4 text-sm font-semibold"
+            className="border border-white cursor-pointer hover:bg-primary-400 rounded-xl py-2 px-4 text-sm font-semibold"
             onClick={resetRange}
           >
             Clear

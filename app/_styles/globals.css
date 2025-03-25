@@ -10,7 +10,7 @@
     aspect-ratio: 1;
     border-radius: 50%;
     border: 8px solid theme("colors.primary.900");
-    border-right-color: theme("colors.primary.200");
+    border-right-color: theme("colors.primary.600");
     animation: rotate 1s infinite linear;
   }
 
@@ -19,7 +19,7 @@
     width: 20px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 2px solid theme("colors.primary.200");
+    border: 2px solid theme("colors.primary.600");
     border-right-color: transparent;
     animation: rotate 1s infinite linear;
   }
@@ -41,10 +41,10 @@
 
 /* For day picker */
 .rdp-root {
-  --rdp-accent-color: theme("colors.accent.500") !important;
-  --rdp-background-color: theme("colors.accent.600") !important;
+  --rdp-accent-color: theme("colors.primary.500") !important;
+  --rdp-background-color: theme("colors.primary.600") !important;
   --rdp-range_middle-background-color: theme(
-    "colors.accent.600"
+    "colors.primary.500"
   ) !important; /* The color of the background for days in the middle of a range. */
   margin: 0 !important;
 }

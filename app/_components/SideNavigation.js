@@ -13,40 +13,55 @@ const navLinks = [
   {
     name: "Home",
     href: "/account",
-    icon: <HomeIcon className="h-5 w-5 text-primary-600" />,
+    icon: (isActive) => (
+      <HomeIcon className={`h-5 w-5 ${isActive ? "text-primary-600" : ""}`} />
+    ),
   },
   {
-    name: "Reservations",
+    name: "Reservasi",
     href: "/account/reservations",
-    icon: <CalendarDaysIcon className="h-5 w-5 text-primary-600" />,
+    icon: (isActive) => (
+      <CalendarDaysIcon
+        className={`h-5 w-5 ${isActive ? "text-primary-600" : ""}`}
+      />
+    ),
   },
   {
-    name: "Guest profile",
+    name: "Profile",
     href: "/account/profile",
-    icon: <UserIcon className="h-5 w-5 text-primary-600" />,
+    icon: (isActive) => (
+      <UserIcon className={`h-5 w-5 ${isActive ? "text-primary-600" : ""}`} />
+    ),
   },
 ];
 
 function SideNavigation() {
   const pathname = usePathname();
-  return (
-    <nav className="border-r border-primary-900">
-      <ul className="flex flex-col gap-2 h-full text-lg">
-        {navLinks.map((link) => (
-          <li key={link.name}>
-            <Link
-              className={`py-3 px-5 hover:bg-primary-900 hover:text-primary-100 transition-colors flex items-center gap-4 font-semibold text-primary-200 ${
-                pathname === link.href ? "bg-primary-900" : ""
-              }`}
-              href={link.href}
-            >
-              {link.icon}
-              <span>{link.name}</span>
-            </Link>
-          </li>
-        ))}
 
-        <li className="mt-auto">
+  return (
+    <nav className="my-10 mx-5">
+      <ul className="flex flex-col justify-between gap-2 text-lg h-full border border-gray-200 rounded-2xl overflow-hidden shadow-sm py-5">
+        <div>
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+
+            return (
+              <li key={link.name}>
+                <Link
+                  className={`py-3 px-5 hover:text-primary-500 transition-colors flex items-center gap-4 font-semibold ${
+                    isActive ? "text-primary-600" : ""
+                  }`}
+                  href={link.href}
+                >
+                  {link.icon(isActive)}
+                  <span>{link.name}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </div>
+
+        <li>
           <SignOutButton />
         </li>
       </ul>

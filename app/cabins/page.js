@@ -16,20 +16,21 @@ export default async function Page({ searchParams }) {
   const filter = params?.capacity ?? "all";
 
   return (
-    <div>
-      <h1 className="text-4xl mb-5 text-accent-400 font-medium">
-        Our Luxury Cabins
+    <div className="max-w-7xl mx-auto mt-20 mb-20 px-4 sm:px-6">
+      <h1 className="text-4xl mb-5 leading-8  font-medium">
+        Cabin kita selalu berada di alam
       </h1>
-      <p className="text-primary-200 text-lg mb-10">
-        Cozy yet luxurious cabins, located right in the heart of the Italian
-        Dolomites. Imagine waking up to beautiful mountain views, spending your
-        days exploring the dark forests around, or just relaxing in your private
-        hot tub under the stars. Enjoy nature&apos;s beauty in your own little
-        home away from home. The perfect spot for a peaceful, calm vacation.
-        Welcome to paradise.
+      <p className="text-lg mb-20 ">
+        ​Selamat datang di Rumah Angsa, tempat di mana kenyamanan modern berpadu
+        dengan keindahan alam Indonesia. Bayangkan bangun dengan pemandangan
+        hutan pinus yang menyejukkan, menghabiskan hari menjelajahi alam sekitar
+        yang asri, atau bersantai di tenda glamping pribadi Anda di bawah
+        gemerlap bintang-bintang. Nikmati keindahan alam dalam kenyamanan rumah
+        kedua Anda. Tempat yang sempurna untuk liburan yang tenang dan damai.
+        Selamat datang di surga.​
       </p>
 
-      <div className="flex justify-end mb-8">
+      <div className="flex justify-end mb-10">
         <Filter />
       </div>
 
