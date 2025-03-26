@@ -2,9 +2,37 @@
 import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
-import { getBookings } from "./data-service";
+import { getBookings, getGuest } from "./data-service";
 import { redirect } from "next/navigation";
 import { bookingSchema } from "./schemas";
+
+export async function createGuest(formData) {
+  const fullName = formData.get("fullName");
+  const email = formData.get("email");
+  const guestData = {
+    fullName: fullName,
+    email: email,
+  };
+
+  const existingGuest = await getGuest(email);
+
+  // If user doesn't exist, create a new one
+  if (!existingGuest) {
+    const { error: createGuestError } = await supabase
+      .from("guests")
+      .insert([guestData]);
+
+    if (createGuestError) {
+      console.error(error);
+      throw new Error("Guest could not be created");
+    }
+  }
+
+  // Sign in user menggunakan NextAuth setelah guest dibuat
+  await signIn("email", { email });
+
+  redirect("/account/reservations");
+}
 
 export async function updateGuest(formData) {
   // Check user authentication. User in invoking server action must be authorization
@@ -31,9 +59,9 @@ export async function updateGuest(formData) {
 
 // With bind function, form data will send as a second argument because the first argument is already binded, which is bookingData
 export async function createBooking(bookingData, formData) {
+
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
-
   const newBookingData = {
     guestId: session.user.guestId,
     ...bookingData,
@@ -42,7 +70,7 @@ export async function createBooking(bookingData, formData) {
     extrasPrice: 0,
     totalPrice: bookingData.cabinPrice,
     isPaid: false,
-    hasBreakfast: false,
+    hasBreakfast: formData.get("breakfast") === "on" ? true : false,
     status: "unconfirmed",
   };
 
@@ -57,11 +85,10 @@ export async function createBooking(bookingData, formData) {
   const { error: createError } = await supabase
     .from("bookings")
     .insert([data.data]);
-
   if (createError) {
     throw new Error("Booking could not be created");
   }
-
+  
   revalidatePath(`/cabins/${bookingData.cabinId}`);
   redirect("/cabins/thankyou");
 }

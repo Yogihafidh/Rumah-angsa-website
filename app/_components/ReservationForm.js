@@ -4,9 +4,15 @@ import { useReservation } from "./ReservationContext";
 import { differenceInDays } from "date-fns";
 import { createBooking } from "../_lib/actions";
 import SubmitButton from "./SubmitButton";
+import { useState } from "react";
 
-function ReservationForm({ cabin, user }) {
+function ReservationForm({ cabin, user, settings }) {
   const { range, resetRange } = useReservation();
+  const [numGuests, setNumGuests] = useState("");
+
+  const handleNumGuestsChange = (event) => {
+    setNumGuests(event.target.value);
+  };
 
   // Setup data for booking
   const { maxCapacity, regularPrice, discount, id } = cabin;
@@ -14,6 +20,8 @@ function ReservationForm({ cabin, user }) {
   const endDate = range?.to;
   const numNights = differenceInDays(endDate, startDate);
   const cabinPrice = numNights * (regularPrice - discount);
+  const optionalBreakfastPrice =
+    settings?.breakfastPrice * Number(numGuests) * Number(numNights);
 
   const bookingData = {
     startDate,
@@ -58,6 +66,8 @@ function ReservationForm({ cabin, user }) {
             id="numGuests"
             className="px-5 py-3 text-gray-500 w-full border border-gray-200 shadow-sm rounded-md"
             required
+            value={numGuests}
+            onChange={handleNumGuestsChange}
           >
             <option value="" key="">
               Pilih berapa banyak tamu...
@@ -81,6 +91,20 @@ function ReservationForm({ cabin, user }) {
             placeholder="Ada hewan peliharaan, alergi, atau persyaratan khusus lainnya?"
           />
         </div>
+
+        {numGuests && numNights ? (
+          <div className="flex gap-4 items-center">
+            <input
+              className="h-[1.6rem] w-[1.6rem] outline-offset-2 accent-primary-500 disabled:accent-gray-400"
+              name="breakfast"
+              type="checkbox"
+              required
+            />
+            <label htmlFor="breakfast">
+              Ingin menambahkan sarapan seharga Rp{optionalBreakfastPrice}K ?
+            </label>
+          </div>
+        ) : null}
 
         <div className="flex justify-end items-center gap-6">
           {!(startDate && endDate) ? (

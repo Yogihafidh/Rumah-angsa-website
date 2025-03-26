@@ -14,13 +14,13 @@ export default async function Navigation() {
           <LinkNavigation path="/cabins">Semua Kabin</LinkNavigation>
         </li>
         <li>
-          {session?.user?.image ? (
+          {session?.user ? (
             <LinkNavigation path="/account" style="flex items-center gap-4">
               <Image
                 className="h-8 rounded-full"
                 width={32}
                 height={32}
-                src={session.user.image}
+                src={session.user.image || "default-user.jpg"}
                 alt={session.user.name}
                 unoptimized
               />
