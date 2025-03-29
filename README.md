@@ -1,4 +1,6 @@
 # Rumah Angsa Web App
+![logo-dark](https://github.com/user-attachments/assets/2019251d-20cc-446e-bec8-bbfb3a77ea95)
+
 
 ## Dashboard
 **Rumah Angsa Web App** adalah aplikasi manajemen hunian yang dibangun menggunakan **Next.js** dan **Supabase**. Aplikasi ini menyediakan pengalaman pemesanan yang mudah dan efisien, memungkinkan pengguna untuk mengelola reservasi dan informasi hunian dengan lancar. Proyek ini dikembangkan sebagai implementasi dari konsep **Fullstack Web Development** dengan teknologi modern.
