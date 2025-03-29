@@ -1,4 +1,3 @@
-import { UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +5,7 @@ function CabinCard({ cabin }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
-    <div className="border-gray-300 border drop-shadow-[0_5px_3px_rgba(0,0,0,0.05)] h-120 rounded-2xl overflow-hidden hover:translate-y-[-10px] transition-all duration-[400ms]">
+    <div className="border-gray-300 border hover:shadow-md h-120 rounded-2xl overflow-hidden hover:translate-y-[-10px] transition-all duration-[400ms]">
       <div className="relative h-1/2">
         <Image
           src={image}
@@ -17,7 +16,7 @@ function CabinCard({ cabin }) {
       </div>
 
       <div className="pt-5 pb-4 px-7 h-1/2 bg-white flex flex-col justify-between">
-        <div className="flex justify-between items-center">
+        <div className="flex sm:flex-row flex-col gap-8 sm:gap-0 justify-between items-center">
           <div>
             <h3 className="font-semibold text-2xl mb-1">Kabin {name}</h3>
             <p className="text-lg text-gray-600">

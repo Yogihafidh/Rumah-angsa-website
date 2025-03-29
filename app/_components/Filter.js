@@ -55,7 +55,7 @@ function Filter() {
 function Button({ filter, handleFilter, activeFilter, children }) {
   return (
     <button
-      className={`cursor-pointer px-5 py-2 hover:bg-primary-300 ${
+      className={`cursor-pointer sm:px-5 sm:py-2 px-3 py-2 hover:bg-primary-300 ${
         filter === activeFilter ? "bg-primary-500 text-white" : ""
       }`}
       onClick={() => handleFilter(filter)}

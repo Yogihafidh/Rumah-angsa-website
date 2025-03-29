@@ -18,7 +18,7 @@ function ReservationList({ bookings }) {
   }
 
   return (
-    <ul className="space-y-6 h-143 overflow-y-auto ">
+    <ul className="space-y-6 h-143 overflow-y-auto">
       {optimisticBookings.map((booking) => (
         <ReservationCard
           booking={booking}

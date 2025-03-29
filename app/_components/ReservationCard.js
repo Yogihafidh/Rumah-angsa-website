@@ -24,8 +24,8 @@ function ReservationCard({ booking, onDelete }) {
   } = booking;
 
   return (
-    <div className="flex border border-gray-300 rounded-2xl overflow-hidden hover:shadow-md">
-      <div className="relative h-32 w-1/4 aspect-square">
+    <div className="flex md:flex-row flex-col border h-100 md:h-fit border-gray-300 rounded-2xl overflow-hidden hover:shadow-md">
+      <div className="relative md:w-1/4 w-full h-1/4 md:h-auto md:aspect-auto">
         <Image
           src={image}
           alt={`Cabin ${name}`}
@@ -35,7 +35,7 @@ function ReservationCard({ booking, onDelete }) {
       </div>
 
       <div className="flex-grow px-6 py-3 flex flex-col">
-        <div className="flex items-center justify-between">
+        <div className="mb-8 sm:mb-0 sm:flex items-center justify-between">
           <h3 className="text-xl font-bold">
             {numNights} malam di kabin {name}
           </h3>
@@ -50,7 +50,7 @@ function ReservationCard({ booking, onDelete }) {
           )}
         </div>
 
-        <p className="text-lg text-gray-500">
+        <p className="text-sm sm:text-lg text-gray-500">
           {format(new Date(startDate), "EEE, MMM dd yyyy")} (
           {isToday(new Date(startDate))
             ? "Hari ini"
@@ -58,22 +58,22 @@ function ReservationCard({ booking, onDelete }) {
           ) &mdash; {format(new Date(endDate), "EEE, MMM dd yyyy")}
         </p>
 
-        <div className="flex gap-5 mt-auto items-baseline">
+        <div className="flex lg:flex-row flex-col gap-2 lg:gap-5 mt-auto items-baseline">
           <p className="text-xl font-semibold">Rp{totalPrice}K</p>
-          <p>&bull;</p>
-          <p className="text-lg ">{numGuests} Tamu</p>
-          <p className="ml-auto text-sm text-gray-500">
+          <p className="lg:block hidden">&bull;</p>
+          <p className="text-lg">{numGuests} Tamu</p>
+          <p className="md:ml-auto text-left text-sm text-gray-500">
             Booking pada {format(new Date(created_at), "EEE, MMM dd yyyy, p")}
           </p>
         </div>
       </div>
 
-      <div className="flex flex-col border-l border-gray-300 w-[100px]">
+      <div className="flex grow md:flex-col border md:border-l mt-5 md:mt-0 border-gray-300 w-full md:w-[100px]">
         {!isPast(startDate) ? (
           <>
             <Link
               href={`/account/reservations/edit/${id}`}
-              className="group flex items-center gap-2 uppercase text-xs font-bold text-gray-500 border-b border-gray-300 flex-grow px-3 hover:bg-gray-300 transition-colors hover:text-primary-900"
+              className="group flex items-center gap-2 uppercase text-xs font-bold text-gray-500 md:border-b border-r border-gray-300 flex-grow px-3 hover:bg-gray-300 transition-colors hover:text-primary-900"
             >
               <PencilSquareIcon className="h-5 w-5" />
               <span className="mt-1">Edit</span>

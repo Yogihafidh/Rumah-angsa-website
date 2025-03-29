@@ -7,7 +7,7 @@ import Header from "./_components/Header";
 export default function Page() {
   return (
     <main>
-      <div className="relative min-h-screen flex flex-col h-screen mb-20">
+      <div className="relative min-h-screen flex flex-col justify-center items-center h-screen mb-20 ">
         <Image
           src={bg}
           placeholder="blur"
@@ -17,9 +17,9 @@ export default function Page() {
           alt="Mountains and forests with two cabins"
         />
 
-        <div className="flex items-center justify-center h-screen w-screen">
+        <div className="flex items-center justify-center h-screen w-screen px-4">
           <div className="relative z-10 text-center">
-            <h1 className="text-8xl text-white mb-1 tracking-tight font-normal">
+            <h1 className="lg:text-8xl sm:text-4xl md:text-6xl text-4xl text-white mb-1 tracking-tight font-normal">
               Welcome to Rumah Angsa.
             </h1>
             <p className="mb-20 text-white">
@@ -28,7 +28,7 @@ export default function Page() {
             </p>
             <Link
               href="/cabins"
-              className="bg-primary-900 rounded-2xl  px-8 py-6 text-white text-lg font-semibold hover:bg-primary-700 transition-all"
+              className="bg-primary-900 rounded-2xl  sm:px-8 sm:py-6 px-5 sm:text-lg py-5 text-white text-base font-semibold hover:bg-primary-700 transition-all"
             >
               Jelajahi semua kabin kita
             </Link>
@@ -36,7 +36,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center  mx-auto w-full mb-20 text-black  px-4 sm:px-8 md:px-10 lg:px-20">
+      <div className="grid md:grid-cols-5 gap-x-24 md:gap-y-32 gap-y-10 text-lg items-center  mx-auto w-full mb-20 text-black  px-4 sm:px-8 md:px-10 lg:px-20">
         <div className="col-span-3">
           <h1 className="text-4xl mb-10  font-medium">
             Selamat datang di Rumah Angsa
@@ -59,21 +59,12 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="col-span-2 rounded-2xl overflow-hidden">
+        <div className="sm:col-span-2 col-span-3 mb-20 sm:mb-0 rounded-2xl overflow-hidden">
           <Image
             src={image1}
             placeholder="blur"
             quality={80}
             alt="Family sitting around a fire pit in front of cabin"
-          />
-        </div>
-
-        <div className="relative aspect-square col-span-2 rounded-2xl overflow-hidden">
-          <Image
-            src="/about-2.jpg"
-            fill
-            className="object-cover"
-            alt="Family that manages The Wild Oasis"
           />
         </div>
 
@@ -106,6 +97,15 @@ export default function Page() {
               memberikan perasaan seperti pulang ke rumah.
             </p>
           </div>
+        </div>
+
+        <div className="relative aspect-square sm:col-span-2 col-span-3  rounded-2xl overflow-hidden">
+          <Image
+            src="/about-2.jpg"
+            fill
+            className="object-cover"
+            alt="Family that manages The Wild Oasis"
+          />
         </div>
       </div>
     </main>

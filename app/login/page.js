@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <div className="grid place-items-center ">
       <div
-        className="flex flex-col gap-10 mt-10 items-center border border-gray-200 rounded-2xl shadow-sm py-10 px-10 w-130 
+        className="flex flex-col gap-10 mt-10 items-center sm:border sm:border-gray-200 rounded-2xl sm:shadow-sm py-10 px-10 sm:w-130 w-100 
     "
       >
         <div className="text-center space-y-2">

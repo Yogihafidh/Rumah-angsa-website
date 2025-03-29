@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${nunito.className} antialiased bg-white text-[#0A0A0A] min-h-screen  flex flex-col relative`}
+        className={`${nunito.className} antialiased bg-white text-[#0A0A0A] min-h-screen  flex flex-col relative h-screen`}
       >
         <Header />
         <div className="flex-1 grid ">

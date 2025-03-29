@@ -16,8 +16,8 @@ export default async function Page({ searchParams }) {
   const filter = params?.capacity ?? "all";
 
   return (
-    <div className="max-w-7xl mx-auto mt-20 mb-20 px-4 sm:px-6">
-      <h1 className="text-4xl mb-5 leading-8  font-medium">
+    <div className="max-w-7xl mx-auto mt-20 mb-20 px-6 sm:px-8">
+      <h1 className="text-4xl mb-5 leading-8 font-medium">
         Cabin kita selalu berada di alam
       </h1>
       <p className="text-lg mb-20 ">
@@ -30,7 +30,7 @@ export default async function Page({ searchParams }) {
         Selamat datang di surga.​
       </p>
 
-      <div className="flex justify-end mb-10">
+      <div className="flex sm:justify-end justify-center mb-10">
         <Filter />
       </div>
 
