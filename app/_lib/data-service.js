@@ -135,11 +135,18 @@ export async function getSettings() {
 
 export async function getCountries() {
   try {
-    const res = await fetch(
-      "https://restcountries.com/v2/all?fields=name,flag"
-    );
-    const countries = await res.json();
-    return countries;
+    const res = await fetch("https://flagcdn.com/en/codes.json");
+    const data = await res.json();
+
+    const countryOptions = Object.entries(data)
+      .map(([code, name]) => ({
+        code,
+        name,
+        flag: `https://flagcdn.com/${code}.svg`,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    return countryOptions;
   } catch {
     throw new Error("Could not fetch countries");
   }
