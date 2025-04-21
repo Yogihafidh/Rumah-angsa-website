@@ -42,6 +42,7 @@ export async function updateGuest(formData) {
   // Check nationalID input. Always treat all the inputs as unsafe
   const nationalID = formData.get("nationalID");
   const [nationality, countryFlag] = formData.get("nationality").split("%");
+
   if (!/^[a-zA-Z0-9]{6,12}$/.test(nationalID))
     throw new Error("Please provide a valid national ID");
 
@@ -59,7 +60,6 @@ export async function updateGuest(formData) {
 
 // With bind function, form data will send as a second argument because the first argument is already binded, which is bookingData
 export async function createBooking(bookingData, formData) {
-
   const session = await auth();
   if (!session) throw new Error("You must be logged in");
   const newBookingData = {
@@ -88,7 +88,7 @@ export async function createBooking(bookingData, formData) {
   if (createError) {
     throw new Error("Booking could not be created");
   }
-  
+
   revalidatePath(`/cabins/${bookingData.cabinId}`);
   redirect("/cabins/thankyou");
 }
