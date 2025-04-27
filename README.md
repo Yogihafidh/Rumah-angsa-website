@@ -1,29 +1,23 @@
-# Rumah Angsa Web App
+# About 
 ![logo-dark](https://github.com/user-attachments/assets/2019251d-20cc-446e-bec8-bbfb3a77ea95)
+Rumah Angsa Web App is a housing management application built with Next.js and Supabase. It provides a seamless booking experience, allowing users to efficiently manage reservations and housing details. This project was developed as an implementation of Fullstack Web Development concepts using modern technologies.
 
+# Features
+- User Accounts: Easy registration and login using Google accounts through NextAuth.js.
+- Simple Reservations: Users can book accommodation units through an intuitive calendar integrated into the app.
+- User Data Management: After making a reservation, users can add their personal information, including their country of origin and identity number.
+- Reservation Updates: Users can edit the number of guests and add observation notes after the reservation is created.
 
-## Dashboard
-**Rumah Angsa Web App** adalah aplikasi manajemen hunian yang dibangun menggunakan **Next.js** dan **Supabase**. Aplikasi ini menyediakan pengalaman pemesanan yang mudah dan efisien, memungkinkan pengguna untuk mengelola reservasi dan informasi hunian dengan lancar. Proyek ini dikembangkan sebagai implementasi dari konsep **Fullstack Web Development** dengan teknologi modern.
+# Tools and Technologies Used
+- Next.js (App Router) – A React-based application structure supporting both dynamic and static rendering.
+- NextAuth.js – A secure and flexible authentication implementation.
+- Supabase – Backend as a Service (BaaS) for authentication and data storage.
+- TailwindCSS – Responsive and modern UI design framework.
+- TypeScript – Provides type safety and enhances code maintainability.
 
-**Rumah Angsa Web App** is a housing management application built with **Next.js** and **Supabase**. It provides a seamless booking experience, allowing users to manage reservations and housing details efficiently. This project was developed as an implementation of **Fullstack Web Development** concepts using modern technologies.
-
-
-## Features
-- **Akun Pengguna**: Registrasi dan login dengan mudah menggunakan akun Google melalui **NextAuth.js**.
-- **Reservasi Mudah**: Pengguna dapat memesan unit hunian melalui kalender intuitif yang tersedia di aplikasi.
-- **Pengelolaan Data Pengguna**: Setelah reservasi, pengguna dapat menambahkan informasi pribadi mereka, termasuk negara asal dan nomor identitas.
-- **Pembaruan Reservasi**: Pengguna dapat mengedit jumlah tamu dan menambahkan catatan observasi setelah pemesanan dibuat.
-
-## Tools dan Teknologi yang Digunakan
-- **Next.js (App Router)** – Struktur aplikasi berbasis **React** dengan dukungan rendering dinamis dan statis.
-- **NextAuth.js** – Implementasi otorisasi yang aman dan fleksibel.
-- **Supabase** – Backend sebagai layanan (BaaS) untuk autentikasi dan penyimpanan data.
-- **TailwindCSS** – Desain UI yang responsif dan modern.
-- **TypeScript** – Menyediakan keamanan tipe dan meningkatkan maintainability kode.
-
-## Konsep Utama yang Dipelajari
-- **Server Side Rendering dengan React**: Perbedaan antara **Server Components** dan **Client Components**, serta penggunaan **Server Actions**.
-- **Static vs. Dynamic Rendering**: Memahami kapan menggunakan rendering statis dan dinamis untuk meningkatkan performa aplikasi.
+Key Concepts Learned
+- Server Side Rendering with React: Understanding the differences between Server Components and Client Components, along with the use of Server Actions.
+- Static vs. Dynamic Rendering: Learning when to use static or dynamic rendering to optimize application performance.
 
 ## Dokumentasi
 About Page
