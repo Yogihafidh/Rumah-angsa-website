@@ -1,5 +1,6 @@
 # About 
 ![logo-dark](https://github.com/user-attachments/assets/2019251d-20cc-446e-bec8-bbfb3a77ea95)
+
 Rumah Angsa Web App is a housing management application built with Next.js and Supabase. It provides a seamless booking experience, allowing users to efficiently manage reservations and housing details. This project was developed as an implementation of Fullstack Web Development concepts using modern technologies.
 
 # Features
